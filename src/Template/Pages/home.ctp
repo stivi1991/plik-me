@@ -27,7 +27,7 @@ if (!Configure::read('debug')) :
     );
 endif;
 
-$cakeDescription = 'CakePHP: the rapid development PHP framework';
+$cakeDescription = 'plik.me';
 ?>
 
 <!DOCTYPE html>
@@ -85,7 +85,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                           <li class="nav-item"><a class="nav-link" href="#features">Jak działamy</a></li>
                                           <li class="nav-item"><a class="nav-link" href="#fakty">Statystyki</a></li>
                                           <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
-                                          <li class="nav-item"><a class="nav-link" href="login.html">Panel klienta</a></li>
+                                          <li class="nav-item"><a class="nav-link" href="users/login">Panel klienta</a></li>
                                       </ul>
                                   </div>
                               </nav>

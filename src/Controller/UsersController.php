@@ -135,7 +135,7 @@ public function initialize() {
                 $this->Auth->setUser($user);
                 return $this->redirect($this->Auth->redirectUrl(['action' => 'index']));
             }
-            $this->Flash->error(__('Invalid username or password, try again'));
+            $this->Flash->message(__('Invalid username or password, try again'));
         }
     }
 
@@ -178,7 +178,7 @@ if ($this->request->is('post')) {
           $this->Auth->setUser($entity);
           return $this->redirect($this->Auth->redirectUrl(['action' => 'index']));
         } else {
-          $this->Flash->error(__('Account with this data already exists.'));
+          $this->Flash->message(__('Account with this data already exists.'));
         }
       }
       else {

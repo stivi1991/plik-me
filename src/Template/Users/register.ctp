@@ -1,6 +1,13 @@
 <?php
 
-echo $this->Form->create('User', array('id'=>'register'));
+use Cake\Cache\Cache;
+use Cake\Core\Configure;
+use Cake\Core\Plugin;
+use Cake\Datasource\ConnectionManager;
+use Cake\Error\Debugger;
+use Cake\Network\Exception\NotFoundException;
+
+$cakeDescription = 'plik.me';
 
 ?>
 
@@ -8,20 +15,30 @@ echo $this->Form->create('User', array('id'=>'register'));
 <html lang="pl">
 
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <?= $this->Html->css('/style.css') ?>
+  <?= $this->Html->css('/css/responsive.css') ?>
+  <?= $this->Html->css('/css/bootstrap.min.css') ?>
+  <?= $this->Html->css('/css/animante.css') ?>
+  <?= $this->Html->css('/css/font-awesome.min.css') ?>
+  <?= $this->Html->css('/css/ionicons.css') ?>
+  <?= $this->Html->css('/css/magnific-popup.css') ?>
+  <?= $this->Html->css('/css/owl.carousel.min.css') ?>
+  <?= $this->Html->css('/css/slick.css') ?>
+  <?= $this->Html->css('/css/themify-icons.css') ?>
 
-    <?= $this->Html->css('/style.css') ?>
-    <?= $this->Html->css('/css/responsive.css') ?>
-    <?= $this->Html->css('/css/bootstrap.min.css') ?>
-    <?= $this->Html->css('/css/animante.css') ?>
-    <?= $this->Html->css('/css/font-awesome.min.css') ?>
-    <?= $this->Html->css('/css/ionicons.css') ?>
-    <?= $this->Html->css('/css/magnific-popup.css') ?>
-    <?= $this->Html->css('/css/owl.carousel.min.css') ?>
-    <?= $this->Html->css('/css/slick.css') ?>
-    <?= $this->Html->css('/css/themify-icons.css') ?>
+      <meta charset="UTF-8">
+      <meta name="description" content="">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+      <!-- Title -->
+      <title>plik.me - Pożyczka zabezpieczona Bitcoinem</title>
+      <?= $this->layout = false; ?>
+      <?= $this->Form->create('User', array('id'=>'register')); ?>
+
+      <!-- Favicon -->
+      <link rel="icon" href="img/core-img/favicon.ico">
 
 </head>
 
