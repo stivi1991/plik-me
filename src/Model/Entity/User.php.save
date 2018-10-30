@@ -13,6 +13,14 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $modified */
 class User extends Entity
 {
+  rotected function _setPassword($value)
+      {
+          if (strlen($value)) {
+              $hasher = new DefaultPasswordHasher();
+
+              return $hasher->hash($value);
+          }
+      }
 
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().

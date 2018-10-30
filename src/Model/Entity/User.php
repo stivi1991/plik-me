@@ -1,6 +1,5 @@
 <?php
 namespace App\Model\Entity;
-use Cake\Auth\DefaultPasswordHasher;
 use Cake\ORM\Entity;
 
 /**
@@ -13,15 +12,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $modified
  */
 class User extends Entity
-{    protected function _setPassword($value)
-    {
-        if (strlen($value)) {
-            $hasher = new DefaultPasswordHasher();
-
-            return $hasher->hash($value);
-        }
-    }
-
+{
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *
@@ -32,18 +23,11 @@ class User extends Entity
      * @var array
      */
     protected $_accessible = [
+        'id' => true,
         'email' => true,
-        'password' => true,
+        'role' => true,
         'created' => true,
         'modified' => true
     ];
 
-    /**
-     * Fields that are excluded from JSON versions of the entity.
-     *
-     * @var array
-     */
-    protected $_hidden = [
-        'password'
-    ];
 }

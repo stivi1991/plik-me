@@ -19,6 +19,11 @@ class UsersController extends AppController
   var $scaffold;
 
 
+public function initialize() {
+
+  parent::initialize();
+  $this->loadModel('PersonalInfo');
+}
     /**
      * Index method
      *
@@ -27,7 +32,6 @@ class UsersController extends AppController
     public function index()
     {
         $users = $this->paginate($this->Users);
-
         $this->set(compact('users'));
     }
 
@@ -45,6 +49,7 @@ class UsersController extends AppController
         ]);
 
         $this->set('user', $user);
+
     }
 
     /**
@@ -54,10 +59,13 @@ class UsersController extends AppController
      */
     public function add()
     {
-        $user = $this->Users->newEntity();
+      $this->loadModel('HashedData');
+      $pass = $this->HashedData->newEntity();
+      $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
-            if ($this->Users->save($user)) {
+            $pass = $this->HashedData->patchEntity($pass, $this->request->getData());
+            if ($this->Users->save($user) && $this->HashedData->save($pass)) {
                 $this->Flash->success(__('The user has been saved.'));
 
               return $this->redirect($this->Auth->redirectUrl());  return $this->redirect(['action' => 'index']);
@@ -115,6 +123,10 @@ class UsersController extends AppController
         $this->Auth->allow('register');
     }
 
+
+
+
+    // LOGIN
     public function login()
     {
         if ($this->request->is('post')) {
@@ -127,6 +139,10 @@ class UsersController extends AppController
         }
     }
 
+
+
+
+    // LOGOUT
     public function logout(){
         $this->Auth->logout();
         $this->redirect('/');
@@ -135,14 +151,32 @@ class UsersController extends AppController
     // SIGN UP ACTION
     public function register() {
       $entity = $this->Users->newEntity();
+      $this->loadModel('HashedData');
+      $this->loadModel('PersonalInfo');
+      $entity_info = $this->PersonalInfo->newEntity();
+      $entity_pass = $this->HashedData->newEntity();
 if ($this->request->is('post')) {
       $entity = $this->Users->patchEntity($entity, $this->request->getData());
-      if (!empty($this->request->getData('email')) && !empty($this->request->getData('password')) && !empty($this->request->getData('password_confirm'))){
+      $entity_info = $this->PersonalInfo->patchEntity($entity_info, $this->request->getData());
+      $entity_pass = $this->HashedData->patchEntity($entity_pass, $this->request->getData());
+      var_dump($entity);
+      var_dump($entity_info);
+      var_dump($entity_pass);
+      if (!empty($this->request->getData('email')) &&
+          !empty($this->request->getData('password')) &&
+          !empty($this->request->getData('password_confirm')) &&
+          !empty($this->request->getData('name_first')) &&
+          !empty($this->request->getData('name_last')))
+          {
         if($this->request->getData(['password']) == $this->request->getData(['password_confirm']))
-        { if($this->Users->save($entity))
         {
+          if(!$entity->getErrors() && !$entity_pass->getErrors() && !$entity_info->getErrors())
+        {
+          $this->Users->save($entity);
+          $this->PersonalInfo->save($entity_info);
+          $this->HashedData->save($entity_pass);
           $this->Auth->setUser($entity);
-          $this->Flash->success(__('The user has been registered. You can now log in.'));
+          return $this->redirect($this->Auth->redirectUrl(['action' => 'index']));
         } else {
           $this->Flash->error(__('Account with this data already exists.'));
         }
@@ -156,4 +190,13 @@ if ($this->request->is('post')) {
   }
 }
 }
+
+  // USER PANEL
+
+  public function userpanel()
+    {
+
+    }
+
+
 }

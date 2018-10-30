@@ -2,6 +2,7 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
+ * @var \App\Model\Entity\PersonalInfo[]|\Cake\Collection\CollectionInterface $personalInfo
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
@@ -18,7 +19,8 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('password') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name_first') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name_last') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -29,7 +31,8 @@
             <tr>
                 <td><?= $this->Number->format($user->id) ?></td>
                 <td><?= h($user->email) ?></td>
-                <td><?= h($user->password) ?></td>
+                <td><?= h($user->personalInfo) ?></td>
+                <td></td>
                 <td><?= h($user->created) ?></td>
                 <td><?= h($user->modified) ?></td>
                 <td class="actions">

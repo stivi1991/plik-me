@@ -36,7 +36,15 @@ class UsersTable extends Table
         $this->setTable('users');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
-
+        $this->hasOne('HashedData', [
+          'foreignKey' => 'id'
+        ]);
+        $this->hasOne('PersonalInfo', [
+          'foreignKey' => 'id'
+        ]);
+        $this->hasMany('Attachments', [
+          'foreignKey' => 'user_id'
+        ]);
         $this->addBehavior('Timestamp');
     }
 
@@ -57,12 +65,6 @@ class UsersTable extends Table
             ->requirePresence('email', 'create')
             ->notEmpty('email');
 
-        $validator
-            ->scalar('password')
-            ->maxLength('password', 255)
-            ->requirePresence('password', 'create')
-            ->notEmpty('password');
-
         return $validator;
     }
 
@@ -79,4 +81,5 @@ class UsersTable extends Table
 
         return $rules;
     }
+
 }

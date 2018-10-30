@@ -41,7 +41,6 @@ var $components = array('Auth');
     public function initialize()
     {
         parent::initialize();
-
         $this->loadComponent('RequestHandler', [
             'enableBeforeRedirect' => false,
         ]);
@@ -50,9 +49,10 @@ var $components = array('Auth');
 		'authenticate' => [
 	 		'Form' => [
 			 'fields' => [
-			   'username' => 'email',
-			   'password' => 'password'
-			]
+			   'username' => 'email'
+			],
+      'userModel' => 'HashedData',
+      'finder' => 'auth'
 		]
 	],
 	'loginAction' => [
@@ -62,6 +62,7 @@ var $components = array('Auth');
 	]);
 
   $this->Auth->allow("display");
+  $this->Auth->allow('users');
 
         /*
          * Enable the following component for recommended CakePHP security settings.
