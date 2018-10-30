@@ -31,11 +31,8 @@ class PersonalInfo extends Entity
     protected $_accessible = [
         'name_first' => true,
         'name_last' => true,
-        'date_of_birth' => true,
-        'phone_number' => true,
-        'verified' => true,
-        'role' => true,
-        'created' => true,
-        'modified' => true
+        'address' => true,
+        'city' => true,
+        'postal_code' => true
     ];
 }

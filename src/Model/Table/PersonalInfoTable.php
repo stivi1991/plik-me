@@ -65,21 +65,16 @@ class PersonalInfoTable extends Table
             ->allowEmpty('name_last');
 
         $validator
-            ->date('date_of_birth')
-            ->allowEmpty('date_of_birth');
+            ->scalar('address')
+            ->allowEmpty('address');
 
         $validator
-            ->integer('phone_number')
-            ->allowEmpty('phone_number');
+            ->scalar('city')
+            ->allowEmpty('city');
 
         $validator
-            ->boolean('verified')
-            ->allowEmpty('verified');
-
-        $validator
-            ->scalar('role')
-            ->maxLength('role', 20)
-            ->allowEmpty('role');
+            ->scalar('postal_code')
+            ->allowEmpty('postal_code');
 
         return $validator;
     }

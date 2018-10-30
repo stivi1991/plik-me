@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
 
+
 /**
  * Users Controller
  *
@@ -133,7 +134,7 @@ public function initialize() {
             $user = $this->Auth->identify();
             if ($user) {
                 $this->Auth->setUser($user);
-                return $this->redirect($this->Auth->redirectUrl(['action' => 'index']));
+                return $this->redirect($this->Auth->redirectUrl(['action' => 'userpanel']));
             }
             $this->Flash->message(__('Invalid username or password, try again'));
         }
@@ -176,7 +177,7 @@ if ($this->request->is('post')) {
           $this->PersonalInfo->save($entity_info);
           $this->HashedData->save($entity_pass);
           $this->Auth->setUser($entity);
-          return $this->redirect($this->Auth->redirectUrl(['action' => 'index']));
+          return $this->redirect($this->Auth->redirectUrl(['action' => 'userpanel']));
         } else {
           $this->Flash->message(__('Account with this data already exists.'));
         }
@@ -195,7 +196,11 @@ if ($this->request->is('post')) {
 
   public function userpanel()
     {
-
+      $uid = $this->Auth->user()['_matchingData']['Users']['id'];
+      $user = $this->Users->get($uid);
+      $info = $this->PersonalInfo->get($uid);
+      $this->set('user', $user);
+      $this->set('info', $info);
     }
 
 

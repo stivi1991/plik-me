@@ -49,7 +49,22 @@ $cakeDescription = 'plik.me';
     </div>
 
     <!-- ***** Header Area Start ***** -->
-    <header>
+    <header class="header_area animated">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <!-- Menu Area Start -->
+                <div class="col-12 col-lg-10">
+                    <div class="menu_area">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <!-- Logo -->
+                            <a class="navbar-brand" href="/"><h7>plik</h7><h8>.me</h8></a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ca-navbar" aria-controls="ca-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
     <!-- ***** Header Area End ***** -->
 
@@ -58,14 +73,6 @@ $cakeDescription = 'plik.me';
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12 col-md">
-                  <div class="menu_area">
-                      <nav class="navbar navbar-expand-lg navbar-light">
-                          <!-- Logo -->
-                          <a class="navbar-brand" href="index.html"><h7>plik</h7><h8>.me</h8></a>
-                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ca-navbar" aria-controls="ca-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                      </nav>
-
-                  </div>
                     <div class="wellcome-heading">
 
                     </div>

@@ -21,12 +21,6 @@ use Cake\Network\Exception\NotFoundException;
 
 $this->layout = false;
 
-if (!Configure::read('debug')) :
-    throw new NotFoundException(
-        'Please replace src/Template/Pages/home.ctp with your own version or re-enable debug mode.'
-    );
-endif;
-
 $cakeDescription = 'plik.me';
 ?>
 
@@ -75,7 +69,7 @@ $cakeDescription = 'plik.me';
                           <div class="menu_area">
                               <nav class="navbar navbar-expand-lg navbar-light">
                                   <!-- Logo -->
-                                  <a class="navbar-brand" href="https://plik.me"><h7>plik</h7><h8>.me</h8></a>
+                                  <a class="navbar-brand" href="/"><h7>plik</h7><h8>.me</h8></a>
                                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ca-navbar" aria-controls="ca-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                                   <!-- Menu Area -->
                                   <div class="collapse navbar-collapse" id="ca-navbar">
@@ -394,7 +388,7 @@ $cakeDescription = 'plik.me';
               <!-- Foooter Text-->
               <div class="copyright-text">
                   <!-- ***** Removing this text is now allowed! This template is licensed under CC BY 3.0 ***** -->
-                  <p>Copyright ©2018 <a href="https://plik.me" target="_blank">plik.me</a></p>
+                  <p>Copyright ©2018 <a href="/" target="_blank">plik.me</a></p>
               </div>
           </footer>
           <!-- ***** Footer Area Start ***** -->

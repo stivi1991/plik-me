@@ -27,8 +27,7 @@ class Attachment extends Entity
      */
     protected $_accessible = [
         'user_id' => true,
-        'front_img_path' => true,
-        'back_img_path' => true,
-        'user' => true
+        'front_url' => true,
+        'back_url' => true
     ];
 }

@@ -54,14 +54,14 @@ class AttachmentsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('front_img_path')
-            ->maxLength('front_img_path', 255)
-            ->allowEmpty('front_img_path');
+            ->scalar('front_url')
+            ->maxLength('front_url', 255)
+            ->allowEmpty('front_url');
 
         $validator
-            ->scalar('back_img_path')
-            ->maxLength('back_img_path', 255)
-            ->allowEmpty('back_img_path');
+            ->scalar('back_url')
+            ->maxLength('back_url', 255)
+            ->allowEmpty('back_url');
 
         return $validator;
     }
