@@ -176,8 +176,9 @@ if ($this->request->is('post')) {
           $this->Users->save($entity);
           $this->PersonalInfo->save($entity_info);
           $this->HashedData->save($entity_pass);
-          $this->Auth->setUser($entity);
-          return $this->redirect($this->Auth->redirectUrl('/'));
+          $user = $this->Auth->identify();
+          $this->Auth->setUser($user);
+          return $this->redirect($this->Auth->redirectUrl('/users/userpanel'));
         } else {
           $this->Flash->message(__('Account with this data already exists.'));
         }
