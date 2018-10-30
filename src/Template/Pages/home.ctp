@@ -79,7 +79,7 @@ $cakeDescription = 'plik.me';
                                           <li class="nav-item"><a class="nav-link" href="#features">Jak działamy</a></li>
                                           <li class="nav-item"><a class="nav-link" href="#fakty">Statystyki</a></li>
                                           <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
-                                          <li class="nav-item"><a class="nav-link" href="users/login">Panel klienta</a></li>
+                                          <li class="nav-item"><a class="nav-link" href="users/userpanel">Panel klienta</a></li>
                                       </ul>
                                   </div>
                               </nav>

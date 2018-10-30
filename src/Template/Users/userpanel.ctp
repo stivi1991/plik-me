@@ -87,7 +87,8 @@ $cakeDescription = 'plik.me';
                           <h2><?= $info->name_first ?> <?= $info->name_last ?></h2>
                           <p><strong>Adres email: </strong> <?= $user->email ?> </p>
                           <p><strong>Adres: </strong><?= $info->address ?> </p>
-                          <p><strong>Miasto: </strong><?= $info->postal_code ?></p>
+                          <p><strong>Miasto: </strong><?= $info->city ?></p>
+                          <p><strong>Kod pocztowy: </strong><?= $info->postal_code ?></p>
                           <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span>Zapisz</button>
                           <button class="btn btn-info btn-block"><span class="fa fa-user"></span> Edytuj </button>
                   </div>
