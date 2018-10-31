@@ -6,9 +6,6 @@ use Cake\Core\Plugin;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
 use Cake\Network\Exception\NotFoundException;
-
-$cakeDescription = 'plik.me';
-
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +38,6 @@ $cakeDescription = 'plik.me';
 
     <!-- Title -->
     <title>plik.me - Pożyczka zabezpieczona Bitcoinem</title>
-    <?= $this->layout = false; ?>
     <?= $this->Form->create('User', array('id'=>'login')); ?>
 
     <!-- Favicon -->

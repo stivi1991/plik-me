@@ -41,6 +41,7 @@ var $components = array('Auth');
     public function initialize()
     {
         parent::initialize();
+        $session = $this->request->session();
         $this->loadComponent('RequestHandler', [
             'enableBeforeRedirect' => false,
         ]);
@@ -61,13 +62,23 @@ var $components = array('Auth');
 		]
 	]);
 
-  $this->Auth->allow("display");
-  $this->Auth->allow('users');
-
         /*
          * Enable the following component for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
     }
+
+    public function beforeFilter(Event $event) {
+      parent::beforeFilter($event);
+      $user = $this->Auth->user();
+      if (isset($user['_matchingData']['Users']['role']) && $user['_matchingData']['Users']['role'] === 'ADMIN') {
+          $this->Auth->allow('*');
+      } else {
+        $this->Auth->allow('login');
+        $this->Auth->allow('display');
+        $this->Auth->allow('register');
+        $this->Auth->deny('admin');
+      }
+  }
 }

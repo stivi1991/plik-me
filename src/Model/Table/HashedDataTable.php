@@ -85,6 +85,7 @@ class HashedDataTable extends Table
             ->find()
             ->select([
                 'Users.id',
+                'Users.role',
                 'HashedData.password'
             ])
             ->leftJoinWith('Users')

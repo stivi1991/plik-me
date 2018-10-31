@@ -13,7 +13,8 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'plik.me - Pożyczka zabezpieczona Bitcoinem'
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,20 +25,17 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
     </title>
-    <?= $this->Html->meta('icon') ?>
+
 
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('style.css') ?>
 
-    <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
     <?= $this->Flash->render() ?>
-    <div class="container clearfix">
         <?= $this->fetch('content') ?>
-    </div>
     <footer>
     </footer>
 </body>

@@ -1186,6 +1186,7 @@ p {
     margin-bottom: 50px;
 }
 
+
 #message {
     border-radius: 25px 25px 25px 0;
 }
@@ -1397,6 +1398,7 @@ h8 {
   font-size: 30px
 }
 
+
 .form .error-message {
     display: block;
     padding: 0.375rem 0.5625rem 0.5625rem;
@@ -1405,24 +1407,24 @@ h8 {
     font-size: 0.75rem;
     font-weight: normal;
     font-style: italic;
-    color: rgba(0, 0, 0, 0.54);
+    color: rgba(0, 0, 0, 0.45);
 }
 
 div.message {
     text-align: center;
     cursor: pointer;
-    display: block;
+    display: block-inline;
     font-weight: normal;
-    padding: 0 1.5rem 0 1.5rem;
+    padding: 0 2.5rem 0 2.5rem;
     transition: height 300ms ease-out 0s;
-    background-color: #a0d3e8;
-    color: #626262;
-    top: 15px;
+    background-color: #1bad01;
+    color: #FFF;
+    top: 35px;
     right: 15px;
     z-index: 999;
     overflow: hidden;
-    height: 50px;
-    line-height: 2.5em;
+    height: 65px;
+    line-height: 4.0em;
 }
 
 div.message:before {
@@ -1443,7 +1445,7 @@ div.message:before {
 }
 
 div.message.error {
-    background-color: #C3232D;
+    background-color: #1E90FF;
     color: #FFF;
 }
 
@@ -1455,6 +1457,3 @@ div.message.error:before {
 div.message.hidden {
     height: 0;
 }
-
-
-

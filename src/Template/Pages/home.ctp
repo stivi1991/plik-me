@@ -19,8 +19,6 @@ use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
 use Cake\Network\Exception\NotFoundException;
 
-$this->layout = false;
-
 $cakeDescription = 'plik.me';
 ?>
 
@@ -55,11 +53,10 @@ $cakeDescription = 'plik.me';
       </head>
 
       <body>
-          <!-- Preloader Start -->
-          <div id="preloader">
-              <div class="colorlib-load"></div>
-          </div>
-
+        <!-- Preloader Start -->
+        <div id="preloader">
+            <div class="colorlib-load"></div>
+        </div>
           <!-- ***** Header Area Start ***** -->
           <header class="header_area animated">
               <div class="container-fluid">
@@ -79,7 +76,7 @@ $cakeDescription = 'plik.me';
                                           <li class="nav-item"><a class="nav-link" href="#features">Jak działamy</a></li>
                                           <li class="nav-item"><a class="nav-link" href="#fakty">Statystyki</a></li>
                                           <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
-                                          <li class="nav-item"><a class="nav-link" href="users/userpanel">Panel klienta</a></li>
+                                          <li class="nav-item"><a class="nav-link" href="users/login">Panel klienta</a></li>
                                       </ul>
                                   </div>
                               </nav>
