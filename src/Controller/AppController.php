@@ -41,7 +41,6 @@ var $components = array('Auth');
     public function initialize()
     {
         parent::initialize();
-        $session = $this->request->session();
         $this->loadComponent('RequestHandler', [
             'enableBeforeRedirect' => false,
         ]);
