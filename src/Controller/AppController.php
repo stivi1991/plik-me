@@ -70,6 +70,7 @@ var $components = array('Auth');
 
     public function beforeFilter(Event $event) {
       parent::beforeFilter($event);
+      $this->Auth->authError = __('Nie masz uprawnień do tej lokalizacji.');
       $user = $this->Auth->user();
       if (isset($user['_matchingData']['Users']['role']) && $user['_matchingData']['Users']['role'] === 'ADMIN') {
           $this->Auth->allow('*');

@@ -10,151 +10,199 @@ use Cake\Network\Exception\NotFoundException;
 ?>
 
 <!DOCTYPE html>
-<html lang="pl">
-
+<html lang="en">
 <head>
-  <?= $this->Html->css('/style.css') ?>
-  <?= $this->Html->css('/css/responsive.css') ?>
-  <?= $this->Html->css('/css/bootstrap.min.css') ?>
-  <?= $this->Html->css('/css/animante.css') ?>
-  <?= $this->Html->css('/css/font-awesome.min.css') ?>
-  <?= $this->Html->css('/css/ionicons.css') ?>
-  <?= $this->Html->css('/css/magnific-popup.css') ?>
-  <?= $this->Html->css('/css/owl.carousel.min.css') ?>
-  <?= $this->Html->css('/css/slick.css') ?>
-  <?= $this->Html->css('/css/themify-icons.css') ?>
+	<title>Able Pro Responsive Bootstrap 4 Admin Template by Phoenixcoded</title>
 
-      <meta charset="UTF-8">
-      <meta name="description" content="">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	 <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
+   	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  		<!--[if lt IE 9]>
+  			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  			<![endif]-->
 
-      <!-- Title -->
-      <title>plik.me - Pożyczka zabezpieczona Bitcoinem</title>
-      <?= $this->Form->create('User', array('id'=>'register')); ?>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="description" content="Phoenixcoded">
+	<meta name="keywords"
+	content=", Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+	<meta name="author" content="Phoenixcoded">
 
-      <!-- Favicon -->
-      <link rel="icon" href="img/core-img/favicon.ico">
+	<!-- Favicon icon -->
+	<link rel="shortcut icon" href="../user/assets/images/favicon.png" type="image/x-icon">
+	<link rel="icon" href="../user/assets/images/favicon.ico" type="image/x-icon">
+
+	<!-- Google font-->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+	<!--ico Fonts-->
+	<link rel="stylesheet" type="text/css" href="../user/assets/icon/icofont/css/icofont.css">
+
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="../user/assets/plugins/bootstrap/css/bootstrap.min.css">
+
+	<!-- Style.css -->
+	<link rel="stylesheet" type="text/css" href="../user/assets/css/main.css">
+
+	<!-- Responsive.css-->
+	<link rel="stylesheet" type="text/css" href="../user/assets/css/responsive.css">
+
+	<!--color css-->
+    <link rel="stylesheet" type="text/css" href="../user/assets/css/color/color-1.min.css" id="color"/>
 
 </head>
-
 <body>
-    <!-- Preloader Start -->
-    <div id="preloader">
-        <div class="colorlib-load"></div>
-    </div>
+	<section class="login common-img-bg">
+		<!-- Container-fluid starts -->
+		<div class="container-fluid">
+			<div class="row">
+					<div class="col-sm-12">
+						<div class="login-card card-block bg-white">
+							<?= $this->Form->create('User', ['type'=>'text']); ?>
+              <div class="text-center">
+                <img src="../user/assets/images/logo.jpg" alt="logo">
+              </div>
+              <h3 class="text-center txt-primary">Nowe konto </h3>
+                <div class="md-input-wrapper">
+                   <?= $this->Form->control('email', array('label'=>false,'class'=>'md-form-control', 'type'=>'email','required'=>true)); ?>
+                   <label>Email *</label>
+                </div>
 
-    <!-- ***** Header Area Start ***** -->
-    <header class="header_area animated">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <!-- Menu Area Start -->
-                <div class="col-12 col-lg-10">
-                    <div class="menu_area">
-                        <nav class="navbar navbar-expand-lg navbar-light">
-                            <!-- Logo -->
-                            <a class="navbar-brand" href="/"><h7>plik</h7><h8>.me</h8></a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ca-navbar" aria-controls="ca-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                        </nav>
-
+                <div class="md-input-wrapper">
+                  <?= $this->Form->control('password', array('label'=>false,'class'=>'md-form-control', 'type'=>'password','required'=>true)); ?>
+                  <label>Hasło *</label>
+                </div>
+                <div class="md-input-wrapper">
+                  <?= $this->Form->control('password_confirm', array('label'=>false,'class'=>'md-form-control', 'type'=>'password','required'=>true)); ?>
+                  <label>Powtórz hasło *</label>
+                </div>
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="md-input-wrapper">
+                        <?= $this->Form->control('name_first', array('label'=>false,'class'=>'md-form-control', 'type'=>'text','required'=>true)); ?>
+                        <label>Imię *</label>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="md-input-wrapper">
+                        <?= $this->Form->control('name_last', array('label'=>false,'class'=>'md-form-control', 'type'=>'text','required'=>true)); ?>
+                        <label>Nazwisko *</label>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="md-input-wrapper">
+                      <?= $this->Form->control('address', array('label'=>false,'class'=>'md-form-control', 'type'=>'text','required'=>true)); ?>
+                      <label>Ulica i numer domu *</label>
                     </div>
                 </div>
-            </div>
-        </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
-
-    <!-- ***** Wellcome Area Start ***** -->
-    <section class="wellcome_area clearfix" id="home">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12 col-md">
-                    <div class="wellcome-heading">
-
-                    </div>
-                    <div class="get-start-area">
-                      <div class="row register-form">
-                          <div class="col-md-6">
-                              <div class="form-group">
-                                <?= $this->Form->control('name_first', array('div'=>false,'label'=>false,'class'=>'form-control', 'type'=>'text','placeholder'=>'Imię *','value'=>'')); ?>
-                              </div>
-                              <div class="form-group">
-                                <?= $this->Form->control('name_last', array('div'=>false,'label'=>false,'class'=>'form-control', 'type'=>'text','placeholder'=>'Nazwisko *','value'=>'')); ?>
-                              </div>
-                              <div class="form-group">
-                                <?= $this->Form->control('password', array('div'=>false,'label'=>false,'class'=>'form-control', 'type'=>'password','placeholder'=>'Hasło *','value'=>'')); ?>
-                              </div>
-                              <div class="form-group">
-                                <?= $this->Form->control('password_confirm', array('div'=>false,'label'=>false,'class'=>'form-control', 'type'=>'password','placeholder'=>'Potwierdź hasło *','value'=>'')); ?>
-                              </div>
-                              <div class="form-group">
-                                <?= $this->Form->control('address', array('div'=>false,'label'=>false,'class'=>'form-control', 'type'=>'text','placeholder'=>'Ulica i numer domu *','value'=>'')); ?>
-                              </div>
-                              <div class="form-group">
-                                <?= $this->Form->control('postal_code', array('div'=>false,'label'=>false,'class'=>'form-control', 'type'=>'text','placeholder'=>'Kod pocztowy *','value'=>'')); ?>
-                              </div>
-                              <div class="form-group">
-                                <?= $this->Form->control('city', array('div'=>false,'label'=>false,'class'=>'form-control', 'type'=>'text','placeholder'=>'Miasto *','value'=>'')); ?>
-                              </div>
-                              <div class="form-group">
-                              <?= $this->Form->control('email', array('div'=>false,'label'=>false,'class'=>'form-control', 'type'=>'text','placeholder'=>'Email *','value'=>'')); ?>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- Form Start -->
-                        <?php echo $this->Form->submit('Zarejestruj się!', array('class'=>'submit')); ?>
-                        <?php echo $this->Form->end(); ?>
-                        <!-- Form End -->
+                <div class="col-md-6">
+                    <div class="md-input-wrapper">
+                      <?= $this->Form->control('address_number', array('label'=>false,'class'=>'md-form-control', 'type'=>'text','required'=>false)); ?>
+                      <label>Numer mieszkania</label>
                     </div>
                 </div>
-            </div>
-        </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="md-input-wrapper">
+                      <?= $this->Form->control('postal_code', array('label'=>false,'class'=>'md-form-control', 'type'=>'text','required'=>true)); ?>
+                      <label>Kod pocztowy *</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="md-input-wrapper">
+                      <?= $this->Form->control('city', array('label'=>false,'class'=>'md-form-control', 'type'=>'text','required'=>true)); ?>
+                      <label>Miejscowość *</label>
+                    </div>
+                </div>
+              </div>
+              <div class="rkmd-checkbox checkbox-rotate checkbox-ripple b-none m-b-20">
+                  <?php echo $this->Form->checkbox('checkbox', array('label'=>false,'class'=>'md-form-control', 'type'=>'checkbox', 'required'=>true)); ?>
+                <p>Zapoznałem się z Regulaminem i Polityką Prywatności</p>
+              </div>
+              <div class="col-xs-10 offset-xs-1">
+                <?php echo $this->Form->submit('Zarejestruj', array('type'=>'submit', 'class'=>"btn btn-primary btn-md btn-block waves-effect waves-light m-b-20")); ?>
+              </button>
+              </div>
+                <div class="row">
+                  <div class="col-xs-12 text-center">
+                    <span class="text-muted">Masz już konto?</span>
+                    <a href="/users/login" class="f-w-600 p-l-5"> Zaloguj się</a>
 
-    </section>
-    <!-- ***** Wellcome Area End ***** -->
+                  </div>
+                </div>
+							<?php echo $this->Form->end(); ?>
+							<!-- end of form -->
+						</div>
+						<!-- end of login-card -->
+					</div>
+					<!-- end of col-sm-12 -->
+				</div>
+				<!-- end of row-->
+			</div>
+			<!-- end of container-fluid -->
+	</section>
+
+	<!-- Warning Section Starts -->
+<!-- Older IE warning message -->
+  <!--[if lt IE 9]>
+      <div class="ie-warning">
+          <h1>Warning!!</h1>
+          <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+          <div class="iew-container">
+              <ul class="iew-download">
+                  <li>
+                      <a href="http://www.google.com/chrome/">
+                          <img src="../user/assets/images/browser/chrome.png" alt="Chrome">
+                          <div>Chrome</div>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="https://www.mozilla.org/en-US/firefox/new/">
+                          <img src="../user/assets/images/browser/firefox.png" alt="Firefox">
+                          <div>Firefox</div>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="http://www.opera.com">
+                          <img src="../user/assets/images/browser/opera.png" alt="Opera">
+                          <div>Opera</div>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="https://www.apple.com/safari/">
+                          <img src="../user/assets/images/browser/safari.png" alt="Safari">
+                          <div>Safari</div>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                          <img src="../user/assets/images/browser/ie.png" alt="">
+                          <div>IE (9 & above)</div>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+          <p>Sorry for the inconvenience!</p>
+      </div>
+      <![endif]-->
+      <!-- Warning Section Ends -->
 
 
+	<!-- Required Jqurey -->
+	<script src="../user/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+	<script src="../user/assets/plugins/tether/dist/js/tether.min.js"></script>
+	<!-- Required Fremwork -->
+	<script src="../user/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<!-- waves effects.js -->
+	<script src="../user/assets/plugins/Waves/waves.min.js"></script>
+	<!--text js-->
+	<script type="text/javascript" src="../user/assets/pages/elements.js"></script>
 
-    <!-- ***** Footer Area Start ***** -->
-    <footer class="footer-social-icon text-center section_padding_70 clearfix">
-        <!-- footer logo -->
-        <div class="footer-text" "center">
-            <h2>plik.me</h2>
-        </div>
-        <!-- social icon-->
-        <div class="footer-social-icon">
-            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            <a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
-        </div>
-        <div class="footer-menu">
-            <nav>
-                <ul>
-                    <li><a href="#">O Nas</a></li>
-                    <li><a href="#">Regulamin</a></li>
-                    <li><a href="#">Polityka Prywatności</a></li>
-                    <li><a href="#">Kontakt</a></li>
-                </ul>
-            </nav>
-        </div>
-        <!-- Foooter Text-->
-        <div class="copyright-text">
-            <!-- ***** Removing this text is now allowed! This template is licensed under CC BY 3.0 ***** -->
-            <p>Copyright ©2018 <a href="https://plik.me" target="_blank">plik.me</a></p>
-        </div>
-    </footer>
-    <!-- ***** Footer Area Start ***** -->
-
-    <!-- Jquery-2.2.4 JS -->
-    <?= $this->Html->script('/js/jquery-2.2.4.min.js') ?>
-    <?= $this->Html->script('/js/popper.min.js') ?>
-    <?= $this->Html->script('/js/bootstrap.min.js') ?>
-    <?= $this->Html->script('/js/plugins.js') ?>
-    <?= $this->Html->script('/js/slick.min.js') ?>
-    <?= $this->Html->script('/js/footer-reveal.min.js') ?>
-    <?= $this->Html->script('/js/active.js') ?>
 
 </body>
-
 </html>

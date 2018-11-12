@@ -3,7 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
-
+use Cake\Filesystem\Folder;
 
 /**
  * Users Controller
@@ -33,17 +33,18 @@ public function beforeFilter(Event $event)
     parent::beforeFilter($event);
     $user = $this->Auth->user();
     $this->Auth->allow(['register']);
+    $this->loadModel('HashedData');
+    $this->loadModel('PersonalInfo');
+    $this->loadModel('Attachments');
 }
 
     // LOGIN
     public function login()
     {
-
       $uid = $this->Auth->user()['_matchingData']['Users']['id'];
       if($uid) {
         return $this->redirect($this->Auth->redirectUrl('/users/userpanel'));
       }
-
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
             if ($user) {
@@ -72,49 +73,53 @@ public function beforeFilter(Event $event)
 
       $uid = $this->Auth->user()['_matchingData']['Users']['id'];
       if($uid) {
-        $this->Flash->error(__('Posiadasz już konto i jesteś już zalogowany.'));
+        $this->Flash->error(__('Posiadasz już konto i jesteś już zalogowany. Wyloguj się aby założyć nowe konto.'));
         return $this->redirect($this->Auth->redirectUrl('/users/userpanel'));
       }
-
       $entity = $this->Users->newEntity();
-      $this->loadModel('HashedData');
-      $this->loadModel('PersonalInfo');
       $entity_info = $this->PersonalInfo->newEntity();
       $entity_pass = $this->HashedData->newEntity();
-if ($this->request->is('post')) {
+      if ($this->request->is('post')) {
       $entity = $this->Users->patchEntity($entity, $this->request->getData());
       $entity_info = $this->PersonalInfo->patchEntity($entity_info, $this->request->getData());
       $entity_pass = $this->HashedData->patchEntity($entity_pass, $this->request->getData());
-      if (!empty($this->request->getData('email')) ||
-          !empty($this->request->getData('password')) ||
-          !empty($this->request->getData('password_confirm')) ||
-          !empty($this->request->getData('name_first')) ||
+
+        if (!empty($this->request->getData('email')) &&
+          !empty($this->request->getData('password')) &&
+          !empty($this->request->getData('password_confirm')) &&
+          !empty($this->request->getData('name_first')) &&
           !empty($this->request->getData('name_last')))
           {
-        if($this->request->getData(['password']) == $this->request->getData(['password_confirm']))
+            if($this->request->getData(['password']) == $this->request->getData(['password_confirm']))
         {
-          if(!$entity->getErrors() && !$entity_pass->getErrors() && !$entity_info->getErrors())
+              if(!$entity->getErrors() && !$entity_pass->getErrors() && !$entity_info->getErrors())
         {
+
+          //check if save operations success
           if($this->Users->save($entity)){
           $this->PersonalInfo->save($entity_info);
           $this->HashedData->save($entity_pass);
-          $this->Flash->success(__('Rejestraca poprawna. Możesz się zalogować. Poczekaj na weryfikację Twoich danych, aby móc w pełni kożystać z serwisu.'));
-          return $this->redirect($this->Auth->redirectUrl('/users/login'));
+          $this->Auth->setUser($entity->id);
+
+          $this->Flash->success(__('Rejestraca poprawna. Potwierdź swój adres email klikając w link w przesłanej wiadomości.'));
+          //return $this->redirect($this->Auth->redirectUrl('/users/login'));
         } else {
           $this->Flash->error(__('Konto z podanym adresem email już istnieje. Zaloguj się.'));
           return $this->redirect($this->Auth->redirectUrl('/users/login'));
         }
+
       }
     }
       else {
         return $this->Flash->error(__('Podane hasła muszą być identyczne.'));
       }
-}
+    }
   else {
-    return $this->Flash->error(__('Uzupełnij wszystkie dane.'));
+    return $this->Flash->error(__('Uzupełnij wszystkie dane na formularzu rejestracyjnym.'));
+    }
   }
 }
-}
+
 
   // USER PANEL
 

@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
 
 
 /**
@@ -23,22 +24,24 @@ class AdminController extends AppController
 public function initialize() {
 
   parent::initialize();
-  $this->loadModel('PersonalInfo');
-  $personalInfo = $this->paginate($this->PersonalInfo);
-  $this->set(compact('personalInfo'));
+
 }
 
 
 public function beforeFilter(Event $event)
 {
     parent::beforeFilter($event);
+
+    $this->loadModel('Users');
+    $this->loadModel('PersonalInfo');
+
     $user = $this->Auth->user();
     if (isset($user['_matchingData']['Users']['role']) && $user['_matchingData']['Users']['role'] === 'ADMIN') {
         $this->Auth->allow('admin');
     } else {
       var_dump($user);
       return $this->redirect('/users/userpanel');
-      $this->Flash->error(__('Not authorized.'));
+      $this->Flash->error(__('Brak dostępu.'));
     }
 }
 
@@ -50,9 +53,27 @@ public function beforeFilter(Event $event)
  */
 public function index()
 {
-    $this->loadModel('Users');
-    $users = $this->paginate($this->Users);
+    $users = $this->Users->find('all');
     $this->set(compact('users'));
+    $verified = $this->Users->find('all', [
+      'conditions' => ['Users.role LIKE' => '%CUST_VERIFIED%']
+  ]);
+    $nverified = $this->Users->find('all', [
+    'conditions' => ['Users.role LIKE' => '%CUST_NOT_VERIFIED%']
+  ]);
+  $nverified10 = $this->Users->find('all',array(
+    'limit'=>10,
+    'conditions'=>array('Users.role LIKE' => '%CUST_NOT_VERIFIED%'),
+    'order' => 'Users.created ASC', // <-- THIS
+    'recursive' => -1,
+));
+  $info = TableRegistry::get('PersonalInfo');
+  $this->set('verified', $verified);
+  $this->set('users', $users);
+  $this->set('info', $info);
+  $this->set('nverified', $nverified);
+  $this->set('nverified10', $nverified10);
+
 }
 
 /**
@@ -69,6 +90,8 @@ public function view($id = null)
     ]);
 
     $this->set('user', $user);
+    $info = TableRegistry::get('PersonalInfo');
+    $this->set('info', $info);
 
 }
 
@@ -139,5 +162,23 @@ public function delete($id = null)
     return $this->redirect(['action' => 'index']);
 }
 
+public function userlist() {
+
+  $users = $this->Users->find('all');
+  $this->set(compact('users'));
+$info = TableRegistry::get('PersonalInfo');
+$this->set('users', $users);
+$this->set('info', $info);
+
+}
+
+  public function transactions(){
+
+}
+
+public function logout(){
+    $this->Auth->logout();
+    $this->redirect('/');
+}
 
 }

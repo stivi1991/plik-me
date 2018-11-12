@@ -17,14 +17,14 @@
 -------------------------- */
 
 @import url('https://fonts.googleapis.com/css?family=Cabin:400,500,700|Montserrat:400,500,700');
-@import 'css/bootstrap.min.css';
-@import 'css/animate.css';
-@import 'css/magnific-popup.css';
-@import 'css/owl.carousel.min.css';
-@import 'css/slick.css';
-@import 'css/font-awesome.min.css';
-@import 'css/themify-icons.css';
-@import 'css/ionicons.min.css';
+@import '/css/bootstrap.min.css';
+@import '/css/animate.css';
+@import '/css/magnific-popup.css';
+@import '/css/owl.carousel.min.css';
+@import '/css/slick.css';
+@import '/css/font-awesome.min.css';
+@import '/css/themify-icons.css';
+@import '/css/ionicons.min.css';
 
 /* --------------------------
 :: 1.0 Base CSS Start
@@ -54,7 +54,7 @@ h6 {
 
 
 .section_padding_100 {
-    padding-top: 500px;
+    padding-top: 100px;
     padding-bottom: 100px;
 }
 
@@ -225,11 +225,10 @@ p {
 
 .section-heading > h2 {
     font-weight: 400;
-    color: #669933;
+    color: #1351d8;
     font-size: 48px;
     margin: 0;
 }
-
 
 .section-heading {
     margin-bottom: 60px;
@@ -370,7 +369,7 @@ p {
     color: #fff;
     font-weight: 500;
     display: inline-block;
-    border: 2px solid #a883e9;
+    border: 2px solid #fff;
     height: 50px;
     min-width: 178px;
     line-height: 46px;
@@ -379,7 +378,7 @@ p {
 }
 
 .sing-up-button > a:hover {
-    background: #fb397d;
+    background: #a40100;
     color: #fff;
     border-color: transparent;
     -webkit-transition-duration: 500ms;
@@ -390,7 +389,7 @@ p {
 /* stcicky css */
 
 .header_area.sticky {
-    background-color: #884bdf;
+    background-color: #084aab;
     -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     height: 70px;
@@ -438,7 +437,7 @@ p {
 .welcome-thumb {
     width: 45%;
     position: absolute;
-    bottom: 150px;
+    bottom: 250px;
     right: 85px;
     z-index: 9;
 }
@@ -449,7 +448,7 @@ p {
 }
 
 .wellcome-heading > h2 {
-    font-size: 100px;
+    font-size: 80px;
     color: #ffffff;
     font-weight: 700;
     position: relative;
@@ -501,7 +500,7 @@ p {
 }
 
 .get-start-area .submit {
-    background-color: #fb397d;
+    background-color: #a40100;
     color: #fff;
     font-weight: 500;
     display: inline-block;
@@ -562,7 +561,7 @@ p {
 
 .single-special > h4 {
     font-size: 22px;
-    color: #5b32b4;
+    color: #1351d8;
     margin-bottom: 15px;
 }
 
@@ -681,7 +680,7 @@ p {
 
 .single-feature > h5 {
     font-size: 22px;
-    color: #5b32b4;
+    color: #1351d8;
 }
 
 .single-feature > p {
@@ -755,7 +754,7 @@ p {
     background: -webkit-gradient(linear, right top, left top, from(#7873ed), to(#a865e1));
     background: -o-linear-gradient(right, #7873ed, #a865e1);
     background: linear-gradient(to left, #F07267, #A90101);
-    padding: 180px 0 80px 0;
+    padding: 100px 0 100px 0;
     top: -100px;
 }
 
@@ -1192,7 +1191,7 @@ p {
 }
 
 .btn.submit-btn {
-    background: #fb397d;
+    background: #a40100;
     height: 48px;
     min-width: 185px;
     color: #ffffff;
@@ -1227,7 +1226,7 @@ p {
 }
 
 .footer-social-icon > a > i {
-    background: #9b69e4;
+    background: #a40100;
     font-size: 14px;
     color: #ffffff;
     height: 40px;
@@ -1398,62 +1397,18 @@ h8 {
   font-size: 30px
 }
 
-
-.form .error-message {
-    display: block;
-    padding: 0.375rem 0.5625rem 0.5625rem;
-    margin-top: -1px;
-    margin-bottom: 1rem;
-    font-size: 0.75rem;
-    font-weight: normal;
-    font-style: italic;
-    color: rgba(0, 0, 0, 0.45);
+h9 {
+  font-family: 'Cabin', sans-serif;
+  font-weight: 700;
+  color: #A40100;
+  line-height: 1.0;
+  font-size: 40px
 }
 
-div.message {
-    text-align: center;
-    cursor: pointer;
-    display: block-inline;
-    font-weight: normal;
-    padding: 0 2.5rem 0 2.5rem;
-    transition: height 300ms ease-out 0s;
-    background-color: #1bad01;
-    color: #FFF;
-    top: 35px;
-    right: 15px;
-    z-index: 999;
-    overflow: hidden;
-    height: 65px;
-    line-height: 4.0em;
-}
-
-div.message:before {
-    line-height: 0px;
-    font-size: 20px;
-    height: 12px;
-    width: 12px;
-    border-radius: 15px;
-    text-align: center;
-    vertical-align: middle;
-    display: inline-block;
-    position: relative;
-    left: -11px;
-    background-color: #FFF;
-    padding: 12px 14px 12px 10px;
-    content: "i";
-    color: #a0d3e8;
-}
-
-div.message.error {
-    background-color: #1E90FF;
-    color: #FFF;
-}
-
-div.message.error:before {
-    padding: 11px 16px 14px 7px;
-    color: #C3232D;
-    content: "x";
-}
-div.message.hidden {
-    height: 0;
+h10 {
+  font-family: 'Cabin', sans-serif;
+  font-weight: 400;
+  color: #ffff;
+  line-height: 1.0;
+  font-size: 30px
 }
