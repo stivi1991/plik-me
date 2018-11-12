@@ -63,7 +63,7 @@ use Cake\Network\Exception\NotFoundException;
 
 			<div class="col-sm-12">
 				<div class="login-card card-block">
-            <?= $this->Form->create('User', ['url' => 'login', 'class'=>'md-float-material']); ?>
+            <?= $this->Form->create('User', ['url' => '/users/login', 'class'=>'md-float-material']); ?>
 						<div class="text-center">
 							<img src="../user/assets/images/logo.jpg" alt="logo">
 						</div>
